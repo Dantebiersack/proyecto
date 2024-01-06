@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sucursales</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="Miguel Ángel Rodríguez Padilla">
+    </head>
+    <body onload="CargarTabla()" class="bg-secondary-subtle">
+        <div class="row">
+            <header class="header">
+                <div class="logo">
+                    <img src="../../../../img/logo.png" width=80 height="80"/>
+                </div>
+                <nav class="nav navbar ">
+                    <ul class="nav-links">
+                        <li><a href="../../homeAdminCentral.html" class="d-flex align-items-center">Home</a></li> 
+                        <li><a href="../proveedor/proveedor.html" class="d-flex align-items-center">Proveedores</a></li> 
+                        <li><a href="../productos/producto.html" class="d-flex align-items-center">Productos</a></li>
+                        <li><a href="../empleados/empleados.html" class="d-flex align-items-center">Empleados</a></li>
+                    </ul>
+                </nav>
+                <div class="login d-flex align-items-center" >
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            <img src="../../../../img/user.png" alt="" class="m-2"/>
+                            Cambiar de perfil
+                        </button>
+                        <ul class="dropdown-menu bg-primary">
+                            <li><a href="../../../../login/loginCentral.html" class="dropdown-item">Admin Central</a></li>
+                            <li><a  href="../../../../login/loginSucursal.html" class="dropdown-item">Admin Sucursal</a></li>
+                            <li><a href="../../../../login/loginVendedor.html" class="dropdown-item">Vendedor</a></li>
+                            <li><a href="../../../../index.html" class="dropdown-item">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                </div>   
+            </header>
+        </div>
+        <div class="mb-3 mt-3">
+            <h1 class="text-center">Sucursales</h1>
+            <section>
+                <div class="container-fluid row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <label class="form-label" for="txtNombre">Id:</label>
+                        <input class="form-control mb-2" type="text" id="txtIdSucursal" name="txtIdSucursal" disabled>
+                        <label class="form-label" for="txtNombre">Nombre de la sucursal:</label>
+                        <input class="form-control mb-2" type="text" id="txtNombreSucursal" name="txtNombreSucursal" required>
+                        <label class="form-label" for="txtNombreGenerico">Nombre del titular:</label>
+                        <input class="form-control mb-2" type="text" id="txtNombreTitular" name="txtNombreTitular">
+                        <label class="form-label" for="txtFormaFarmaceutica">RFC:</label>
+                        <input class="form-control mb-2" type="text" id="txtRFC" name="txtRFC">
+                        <label class="form-label" for="txtPresentacion">Domicilio:</label>
+                        <input class="form-control mb-2" type="text" id="txtDomicilio" name="txtDomicilio">
+
+                    </div>
+
+                    <div class="col-md-3"> 
+                        <label class="form-label" for="txtPrincipalIndicacion">Colonia:</label>
+                        <input class="form-control mb-2" type="text" id="txtColonia" name="txtColonia">
+                        <label class="form-label" for="txtContraindicaciones">Ciudad:</label>
+                        <input class="form-control mb-2" type="text" id="txtCiudad" name="txtCiudad">
+                        <label class="form-label" for="txtConcentracion">Codigo Postal:</label>
+                        <input class="form-control mb-2" type="text" id="txtCP" name="txtCP">
+                        <label class="form-label" for="txtUnidadesEnvase">Teléfono:</label>
+                        <input class="form-control mb-2" type="text" id="txtTelefono" name="txtTelefono">
+                        <label class="form-label" for="txtPrecioCompra">Estado:</label>
+                        <input class="form-control mb-2" type="text"  id="txtEstado" name="txtEstado">
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="form-label" for="txtPrecioVenta">Longitud:</label>
+                        <input class="form-control mb-2" type="number" id="txtLongitud" name="txtLongitud">
+                        <label class="form-label" for="txtFoto">Latitud:</label>
+                        <input class="form-control mb-2" type="text" id="txtLatitud" name="txtLatitud">
+                        <label class="form-label" for="txtRutaFoto">Estatus:</label>
+                        <input class="form-control mb-2" type="text" id="txtEstatus" name="txtEstatus" disabled>
+
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary me-2" onclick="insertar();">Guardar</button>
+                    <button class="btn btn-success me-2" onclick="actualizarSucursal();">Actualizar</button>
+                    <button class="btn btn-danger me-2" onclick="eliminarSucursal();">Cambiar Estatus</button>
+                    <button class="btn btn-warning me-2" onclick="vaciarFormulario();">Limpiar</button>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="input-group mt-3" style="max-width: 400px;">
+                        <input type="text" class="form-control" name="txtBusqueda" id="txtBusqueda">
+                        <button class="btn btn-outline-secondary" onclick="buscarSucursal();">Buscar</button>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12 table-responsive">
+                    <table id="tablaRegistros" class="table table-striped border-light text-light table-responsive">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre de sucursal</th>
+                                <th>Nombre del titular</th>
+                                <th>RFC</th>
+                                <th>Domicilio</th>
+                                <th>Colonia</th>
+                                <th>Ciudad</th>
+                                <th>Codigo Postal</th>
+                                <th>Teléfono</th>
+                                <th>Estado</th>
+                                <th>Longitud</th>
+                                <th>Latitud</th>
+                                <th>Estatus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+        <div class="row">
+            <footer class="text-center mt-3">
+                <p>&#169Copyright 2023 Medicamos tu Vida S.A. | Aviso Legal
+                    | Aviso de privacidad TEL 477 123 45 67</p>
+            </footer>
+        </div>
+        <script src="../../../../js/sucursalJS.js"></script>
+        <link href="../../../../styles/style.css" rel="stylesheet" type="text/css"/>
+        <link href="../../../../style/style.css" rel="stylesheet" type="text/css"/>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://kit.fontawesome.com/5b2670a1a9.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

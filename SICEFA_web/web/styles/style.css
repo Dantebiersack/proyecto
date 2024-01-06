@@ -1,0 +1,213 @@
+/* Establece el modelo de caja a 'border-box' para incluir el padding y el borde en el ancho y alto */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para la barra de navegación */
+.header {
+    background-color: #45ADCC;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100px;
+    padding-right: 20px;
+}
+
+/* Estilos para el logo dentro de la barra de navegación */
+.header .logo img {
+    height: 90px;
+    width: auto;
+}
+
+/* Estilos para la lista de enlaces de la barra de navegación */
+.header .nav-links {
+    list-style: none;
+}
+
+/* Estilos para cada elemento de la lista de enlaces */
+.header .nav-links li {
+    display: inline-block;
+    margin: 0;
+}
+
+/* Estilos para los enlaces en la barra de navegación al pasar el ratón por encima */
+.header .nav-links a:hover {
+    color: #000099;
+    background-color: #BDDAFC;
+    border-color: 45ADCC;
+}
+
+/* Estilos para el botón de inicio de sesión en la barra de navegación */
+.inicio {
+    background-color: #45ADCC;
+    border-color: #45ADCC;
+}
+
+/* Estilos para el botón de inicio de sesión en la barra de navegación al pasar el ratón por encima */
+.inicio:hover {
+    background-color: #00a99d !important;
+    border-color: #00a99d !important;
+}
+
+/* Estilos para el botón de inicio de sesión en la barra de navegación al hacer clic */
+.inicio:active {
+    background-color: #00a99d !important;
+}
+
+/* Estilos para los enlaces en la barra de navegación */
+.header .nav-links a {
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+    border-radius: 10px;
+    border-color: #45ADCC;
+}
+
+/* Estilos para la sección de inicio de sesión en la barra de navegación */
+.header .login {
+    margin-left: auto;
+    border-color: #45ADCC;
+}
+
+/* Estilos para los enlaces de inicio de sesión */
+.login a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-color: #45ADCC;
+}
+
+/* Estilos para la imagen en los enlaces de inicio de sesión */
+.login img {
+    width: 60px;
+    padding: 5px;
+}
+
+/* Estilos para los enlaces de inicio de sesión al pasar el ratón por encima */
+.login a:hover {
+    color: #45ADCC;
+    background-color: #BDDAFC;
+    border-color: #45ADCC;
+}
+
+/* Estilos para la sección de título */
+.titulo {
+    height: 500px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+}
+
+/* Estilos para el título principal */
+.titulo h1 {
+    color: #0000ff;
+    font-size: 89px;
+    font-weight: bold;
+}
+
+/* Estilos para subtítulos en la sección de título */
+.titulo h5 {
+    color: #ff0000;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.titulo h3 {
+    color: #0000ff;
+    font-size: 63px;
+}
+
+/* Estilos para la sección de contenido */
+.contenido {
+    border-top: darkgray 1px solid;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    padding-right: 100px;
+    padding-left: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para títulos dentro de la sección de contenido */
+.contenido .titulo1 {
+    display: flex;
+    justify-content: center;
+    color: #FF6666;
+    font-weight: bold;
+}
+
+.contenido .titulo2 {
+    display: flex;
+    justify-content: center;
+    color: #0D2E54;
+    font-weight: bold;
+}
+
+/* Estilos para elementos flexibles */
+.d-flex {
+    align-content: center;
+    justify-content: center;
+}
+
+/* Estilos generales para títulos */
+h4 {
+    color: #0000ff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos para imágenes en la sección de contenido */
+.contimg {
+    border-radius: 50%;
+    width: 250px;
+    height: 210px;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #45ADCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    padding-right: 20px;
+}
+
+/* Estilos para el mensaje de bienvenida en el pie de página */
+.welcome {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 40px;
+}
+
+/* Estilos para el cuerpo del login */
+.logbody {
+    background-color: #45ADCC;
+    width: 70%;
+    height: auto;
+    justify-content: center;
+}
+
+/* Estilos para enlaces en la sección de recuperación de contraseña */
+.contra a {
+    text-decoration: none;
+    color: #0D2E54;
+    font-weight: bold;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+/* Estilos para enlaces en la sección de recuperación de contraseña al pasar el ratón por encima */
+.contra a:hover {
+    color: white;
+}
